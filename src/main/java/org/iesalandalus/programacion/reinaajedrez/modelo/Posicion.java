@@ -3,14 +3,14 @@ package org.iesalandalus.programacion.reinaajedrez.modelo;
 public class Posicion {
 
 	private static final int FILA_X = 1 ;
-	private static final int COLUMNA_X = ;
+	private static final int COLUMNA_Y = A++ ;
 
 	private int x;
 	private int y;
 
 	public Posicion() {
 		x = FILA_X;
-		y = FILA_Y;
+		y = COLUMNA_Y;
 	}
 
 	public Posicion(int x, int y) {
@@ -33,7 +33,7 @@ public class Posicion {
 	public void setX(int x) {
 		if (x < FILA_X) {
 			throw new IllegalArgumentException("El valor de la x es menor que el mínimo permitido.");
-		} else if (x > COLUMNA_X) {
+		} else if (x > FILA_X) {
 			throw new IllegalArgumentException("El valor de la x es mayor que el máximo permitido.");
 		}
 		this.x = x;
@@ -44,7 +44,7 @@ public class Posicion {
 	}
 
 	public void setY(int y) {
-		if (y < FILA_Y) {
+		if (y < COLUMNA_Y) {
 			throw new IllegalArgumentException("El valor de la y es menor que el mínimo permitido.");
 		} else if (y > COLUMNA_Y) {
 			throw new IllegalArgumentException("El valor de la y es mayor que el máximo permitido.");
