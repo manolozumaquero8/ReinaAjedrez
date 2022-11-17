@@ -1,61 +1,60 @@
 package org.iesalandalus.programacion.reinaajedrez.modelo;
 
+import java.util.Objects;
+
 public class Posicion {
 
-		private static final int FILAMIN_X = 1;
-		private static final int FILAMAX_X = 8;
-		private static final char COLUMNAMIN_Y = A;
-		private static final char COLUMNAMAX_Y = B,C,D,E,F,G,H;
+		private int fila;
+		private char columna;
+		
 
-		private int x;
-		private int y;
-
-		public Posicion() {
-			x = FILAMIN_X;
-			y = COLUMNAMIN_Y;
+		public Posicion(int fila, char columna) {
+		if ( fila < 1 || fila > 8) { 
+			throw new IllegalArgumentException ("ERROR: Fila no válida.");
 		}
-
-		public Posicion(int x, int y) {
-			setX(x);
-			setY(y);
+		if ( columna < 'a' || columna > 'h') { 
+			throw new IllegalArgumentException ("ERROR: Columna no válida.");
+		}
+			setFila(fila);
+			setColumna(columna);
 		}
 
 		public Posicion(Posicion posicion) {
 			if (posicion == null) {
-				throw new NullPointerException("No puedo copiar una posición nula.");
+				throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
 			}
-			setX(posicion.getX());
-			setY(posicion.getY());
+			setFila(posicion.getFila());
+			setColumna(posicion.getColumna());
 		}
 
-		public int getX() {
-			return x;
+		public int getFila() {
+			return fila;
 		}
 
-		public void setX(int x) {
-			if (x < FILAMIN_X) {
-				throw new IllegalArgumentException("El valor de la x es menor que el mínimo permitido.");
-			} else if (x > FILAMAX_X) {
-				throw new IllegalArgumentException("El valor de la x es mayor que el máximo permitido.");
+		public void setFila(int fila) {
+			if (fila < 1) {
+				throw new IllegalArgumentException("El valor de la fila es menor que el mínimo permitido.");
+			} else if (fila > 8) {
+				throw new IllegalArgumentException("El valor de la fila es mayor que el maximo permitido.");
 			}
-			this.x = x;
+			this.fila = fila;
 		}
 
-		public int getY() {
-			return y;
+		public char getColumna() {
+			return columna;
 		}
 
-		public void setY(int y) {
-			if (y < COLUMNAMIN_Y) {
-				throw new IllegalArgumentException("El valor de la y es menor que el mínimo permitido.");
-			} else if (y > COLUMNAMAX_Y) {
-				throw new IllegalArgumentException("El valor de la y es mayor que el máximo permitido.");
+		public void setColumna(char columna) {
+			if (columna < 'a') {
+				throw new IllegalArgumentException("El valor de la columna es menor que el mínimo permitido.");
+			} else if (columna > 'h') {
+				throw new IllegalArgumentException("El valor de la columna es mayor que el maximo permitido.");
 			}
-			this.y = y;
+			this.columna = columna;
 		}
 
 		public int hashCode() {
-			return Objects.hash(x, y);
+			return Objects.hash(fila, columna);
 		}
 
 		public boolean equals(Object obj) {
@@ -66,12 +65,12 @@ public class Posicion {
 			if (getClass() != obj.getClass())
 				return false;
 			Posicion other = (Posicion) obj;
-			return x == other.x && y == other.y;
+			return fila == other.fila && columna == other.columna;
 		}
 
 
 		public String toString() {
-			return String.format("x=%s, y=%s", x, y);
+			return String.format("fila=%s, columna=%s", fila, columna);
 		}
 
 
