@@ -7,7 +7,7 @@ public class Consola {
 	  public static void MostrarMenu() {
 	    System.out.println("Programa para mover una reina en el tablero de ajedrez");
 	    System.out.println("1.- Crear una reina por defecto.");
-	    System.out.println("2.- Crear una reina por defecto eligiendo el color.");;
+	    System.out.println("2.- Crear una reina por defecto eligiendo el color.");
 	    System.out.println("3.- Mover reina.");
 	    System.out.println("4.- Salir.");
 
@@ -15,9 +15,7 @@ public class Consola {
 	  
 	  public static int elegirOpcionMenu() {
 	      int opcion = 0;
-	      System.out.print("Elige una opcion (0-4): ");
-	      opcion = Entrada.entero();
-	      while (opcion != 4) {
+	      while (opcion > 4 || opcion < 1) {
 	      System.out.print("Elige una opcion (0-4): ");
 	      opcion = Entrada.entero();
 	      }
@@ -30,7 +28,7 @@ public class Consola {
 		  System.out.println("1-Elegir color blanco");
 		  System.out.println("2-Elegir color negro");	
 		  coloropcion = Entrada.entero();
-		  while (coloropcion != 1 || coloropcion !=2) {
+		  while (coloropcion < 1 || coloropcion > 2) {
 			  System.out.println("1- Elegir color blanco ");
 			  System.out.println("2- Elegir color negro");
 		  }
@@ -59,13 +57,11 @@ public class Consola {
 	  }
 	  
 	  public static Direccion elegirDireccion() {
-	    int opciondireccion = 0;
-	    System.out.println("1- Elegir color blanco ");
-		System.out.println("2- Elegir color negro");
+	    int opciondireccion;
+	    System.out.println("Elige una direccion ");
 		opciondireccion= Entrada.entero();
 	    while (opciondireccion > 8 || opciondireccion < 1) {
-			  System.out.println("1- Elegir color blanco ");
-			  System.out.println("2- Elegir color negro");
+			  System.out.println("Pon un numero de pasos ");
 			  opciondireccion= Entrada.entero();
 	    }
 			  
